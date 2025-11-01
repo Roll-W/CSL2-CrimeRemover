@@ -7,7 +7,7 @@
         <Authors>RollW</Authors>
         <Copyright>Copyright (c) 2024-2025 RollW (github.com/roll-w). All rights reserved.</Copyright>
         <Product>$(Title)</Product>
-        <Version>1.1.1</Version>
+        <Version>1.1.2</Version>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
 
         <OutputType>Library</OutputType>
