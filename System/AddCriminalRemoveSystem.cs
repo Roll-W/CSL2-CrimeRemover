@@ -91,8 +91,7 @@ namespace CrimeRemover.System
                 ComponentType.Exclude<Temp>()
             );
 
-            RequireForUpdate(_addCriminalQuery);
-            RequireForUpdate(_crimeQuery);
+            RequireAnyForUpdate(_addCriminalQuery, _crimeQuery);
         }
     }
 }

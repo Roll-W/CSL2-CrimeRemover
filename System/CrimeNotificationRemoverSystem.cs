@@ -34,7 +34,7 @@ namespace CrimeRemover.System
     {
         private EntityQuery _policeConfigurationQuery;
         private EntityQuery _notificationsQuery;
-        private EntityQuery _accicentSiteQuery;
+        private EntityQuery _accidentSiteQuery;
 
         protected override void OnUpdate()
         {
@@ -72,7 +72,7 @@ namespace CrimeRemover.System
 
         private void RemoveCrimeSceneEvents()
         {
-            var accidentSites = _accicentSiteQuery.ToEntityArray(Allocator.Temp);
+            var accidentSites = _accidentSiteQuery.ToEntityArray(Allocator.Temp);
 
             foreach (var entity in accidentSites)
             {
@@ -118,15 +118,13 @@ namespace CrimeRemover.System
                 ComponentType.Exclude<Temp>()
             );
 
-            _accicentSiteQuery = GetEntityQuery(
+            _accidentSiteQuery = GetEntityQuery(
                 ComponentType.ReadWrite<AccidentSite>(),
                 ComponentType.Exclude<Deleted>(),
                 ComponentType.Exclude<Temp>()
             );
 
-            RequireForUpdate(_policeConfigurationQuery);
-            RequireForUpdate(_notificationsQuery);
-            RequireForUpdate(_accicentSiteQuery);
+            RequireAnyForUpdate(_policeConfigurationQuery, _notificationsQuery, _accidentSiteQuery);
         }
     }
 }
